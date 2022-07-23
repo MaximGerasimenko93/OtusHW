@@ -12,24 +12,12 @@ public class Quiz {
         questions[2] = "Кто является автором романа 'Норма'?";
         questions[3] = "Кто из российских философов говорил о камышовом коте-убийце?";
 
-
-        String[][] answerOptions = new String[4][4];
-        answerOptions[0][0] = "1. Стив Джобс";
-        answerOptions[0][1] = "2. Фрэнсис Бэкон";
-        answerOptions[0][2] = "3. Томас Гоббс";
-        answerOptions[0][3] = "4. Оливер Кромвель";
-        answerOptions[1][0] = "1. Рене Магритт";
-        answerOptions[1][1] = "2. Аристотель";
-        answerOptions[1][2] = "3. Готфрид Лейбниц";
-        answerOptions[1][3] = "4. Рене Декарт";
-        answerOptions[2][0] = "1. Джейн Остин";
-        answerOptions[2][1] = "2. Владимир Набоков";
-        answerOptions[2][2] = "3. Виктор Пелевин";
-        answerOptions[2][3] = "4. Владимир Сорокин";
-        answerOptions[3][0] = "1. Алексей Лосев";
-        answerOptions[3][1] = "2. Николай Бердяев";
-        answerOptions[3][2] = "3. Лев Гумилев";
-        answerOptions[3][3] = "4. Александр Дугин";
+        String[][] answerOptions = {
+                {"1. Стив Джобс", "2. Фрэнсис Бэкон", "3. Томас Гоббс", "4. Оливер Кромвель"},
+                {"1. Рене Магритт", "2. Аристотель", "3. Готфрид Лейбниц", "4. Рене Декарт"},
+                {"1. Джейн Остин", "2. Владимир Набоков", "3. Виктор Пелевин", "4. Владимир Сорокин"},
+                {"1. Алексей Лосев", "2. Николай Бердяев", "3. Лев Гумилев", "4. Александр Дугин"}
+        };
 
         int[] correctAnswers = new int[4];
         correctAnswers[0] = 3;
@@ -45,10 +33,10 @@ public class Quiz {
             for (int j = 0; j < answerOptions[i].length; j++) {
                 System.out.println(answerOptions[i][j]);
             }
-            System.out.print("Ваш ответ: ");
-            while (scanner.hasNextInt()) {
-                int x = scanner.nextInt();
-                if (!(x == correctAnswers[i])) {
+            System.out.print("Введите номер ответа от 1 до 4 включительно: ");
+            {
+                int userAnswer = scanner.nextInt();
+                if (!(userAnswer == correctAnswers[i])) {
                     wrongCount++;
                     System.out.println("Ответ неверный, попробуйте снова");
                 } else {
@@ -56,6 +44,8 @@ public class Quiz {
                     System.out.println("Поздравляю! Вы ответили верно");
                 }
             }
+            System.out.println("Правильных ответов: " + correctCount);
+            System.out.println("Неправильных ответов: " + wrongCount);
         }
     }
 }
