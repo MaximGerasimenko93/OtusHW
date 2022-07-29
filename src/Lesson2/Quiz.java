@@ -34,21 +34,36 @@ public class Quiz {
                 System.out.println(answerOptions[i][j]);
             }
             System.out.print("Введите номер ответа от 1 до 4 включительно: ");
-            {
-                int userAnswer = scanner.nextInt();
-                if (!(userAnswer == correctAnswers[i])) {
-                    wrongCount++;
-                    System.out.println("Ответ неверный, попробуйте снова");
+
+            int userAnswer = 0;
+            while (scanner.hasNext()) {
+                if (scanner.hasNextInt()) {
+                    userAnswer = scanner.nextInt();
+                    if (userAnswer > 0 && userAnswer <= answerOptions[i].length) {
+                        break;
+                    } else {
+                        System.out.println("Введите вариант ответов от 1 до 4, пожалуйста");
+                        scanner.next();
+                    }
                 } else {
-                    correctCount++;
-                    System.out.println("Поздравляю! Вы ответили верно");
+                    System.out.println("Вы ввели не число");
+                    scanner.next();
                 }
             }
-            System.out.println("Правильных ответов: " + correctCount);
-            System.out.println("Неправильных ответов: " + wrongCount);
+            if (!(userAnswer == correctAnswers[i])) {
+                wrongCount++;
+                System.out.println("Ответ неверный, попробуйте снова");
+            } else {
+                correctCount++;
+                System.out.println("Поздравляю! Вы ответили верно");
+            }
         }
+
+        System.out.println("Правильных ответов: " + correctCount);
+        System.out.println("Неправильных ответов: " + wrongCount);
     }
 }
+
 
 
 
