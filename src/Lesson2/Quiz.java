@@ -52,10 +52,8 @@ public class Quiz {
             }
             if (!(userAnswer == correctAnswers[i])) {
                 wrongCount++;
-                System.out.println("Ответ неверный, попробуйте снова");
             } else {
                 correctCount++;
-                System.out.println("Поздравляю! Вы ответили верно");
             }
         }
 
