@@ -5,11 +5,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * 1. создать мапу <client, List<accounts>account>
- * 2. создать метод List<Account>> accounts getAccounts(Client client)
- */
-
 public class Bank {
     private int coin;
     private Map<Client, List<Account>> accounts = new HashMap<>();
@@ -18,6 +13,7 @@ public class Bank {
     public Bank(int coin) {
         this.coin = coin;
     }
+
     public Bank() {
 
     }
@@ -27,17 +23,14 @@ public class Bank {
         return accountList;
     }
 
-    // найти клиента по аккаунту
     public Client getClientByAccount(Account account) {
-       return clients.get(account);
+        return clients.get(account);
     }
 
-    // Положить клиента и список счетов в мапу
     public void putDataToBankVault(Client client, List<Account> accountList) {
         accounts.put(client, accountList);
     }
 
-    // Положить клиента в хранилище
     public void putClientToTheVault(Account account, Client client) {
         clients.put(account, client);
     }

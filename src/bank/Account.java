@@ -14,8 +14,8 @@ public class Account {
 
     @Override
     public String toString() {
-        return "Account{" +
-                "accountNumber=" + accountNumber +
+        return "Счет" +
+                "Номер счета = " + accountNumber +
                 '}';
     }
 }
