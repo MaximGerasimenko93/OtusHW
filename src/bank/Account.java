@@ -1,5 +1,7 @@
 package bank;
 
+import java.util.Objects;
+
 public class Account {
 
     private int accountNumber;
@@ -8,14 +10,27 @@ public class Account {
         this.accountNumber = accountNumber;
     }
 
-    public int getAccountNumber() {
-        return accountNumber;
-    }
-
     @Override
     public String toString() {
         return "Счет" +
                 "Номер счета = " + accountNumber +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Account account = (Account) o;
+        return accountNumber == account.accountNumber;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(accountNumber);
+    }
+
+    public int getAccountNumber() {
+        return accountNumber;
     }
 }
