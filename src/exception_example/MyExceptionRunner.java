@@ -6,11 +6,13 @@ import java.io.IOException;
 
 public class MyExceptionRunner {
 
+
     public static void main(String[] args) {
 
         AnotherExample anotherExample = new AnotherExample();
+        MyExceptionRunner myExceptionRunner = new MyExceptionRunner();
         anotherExample.makeUnsafeSituation();
-
+        myExceptionRunner.closeResources();
 
         try {
             anotherExample.makeUnsafeSituation();
@@ -33,7 +35,7 @@ public class MyExceptionRunner {
         }
     }
 
-    public static void closeResources() {
+    public void closeResources() {
         try (FileReader fileReader = new FileReader("empty path")) {
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
